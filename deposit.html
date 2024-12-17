@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Deposit Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form action="process_payment.php" method="post">
+        <label for="amount">Amount to Deposit:</label>
+        <input type="number" id="amount" name="amount"><br><br>
+        <input type="submit" value="Deposit">
+          <form action="process_payment.php" method="post">
+        <label for="payment_method">Choose Payment Method:</label>
+        <select id="payment_method" name="payment_method">
+            <option value="bank_transfer">Bank Transfer</option>
+            <option value="credit_card">Credit/Debit Card</option>
+            <option value="cryptocurrency">Cryptocurrency</option>
+            <option value="mobile_money">Mobile Money</option>
+        </select>
+
+        <div id="payment_options">
+        </div>
+
+        <input type="submit" value="Deposit">
+    </form>
+ </form>
+    <script src="script.js"></script>
+</body>
+</html>
