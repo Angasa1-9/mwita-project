@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading Platform</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/trading.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <img src="assets/logo.png" alt="Logo">
+            <span>VINANCE</span>
+        </div>
+        <ul class="nav-menu">
+            <li onclick="window.location.href='dashboard.html'">
+                <i class="fas fa-th-large"></i>
+                <span>Dashboard</span>
+            </li>
+            <li class="active">
+                <i class="fas fa-exchange-alt"></i>
+                <span>Trade</span>
+            </li>
+            <li>
+                <i class="fas fa-history"></i>
+                <span>Trade History</span>
+            </li>
+            <li>
+                <i class="fas fa-users"></i>
+                <span>P2P Center</span>
+            </li>
+            <li>
+                <i class="fas fa-wallet"></i>
+                <span>Manage Wallet</span>
+            </li>
+            <li>
+                <i class="fas fa-download"></i>
+                <span>Deposit History</span>
+            </li>
+            <li>
+                <i class="fas fa-upload"></i>
+                <span>Withdraw History</span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Trading Interface -->
+    <div class="trading-content">
+        <!-- Trading Pair Header -->
+        <div class="trading-header">
+            <div class="trading-pair">
+                <img src="assets/bnb.png" alt="BNB">
+                <div class="pair-info">
+                    <h2>BNB/USDT</h2>
+                    <span class="price">$312.50</span>
+                    <span class="change positive">+2.45%</span>
+                </div>
+            </div>
+            <div class="trading-stats">
+                <div class="stat">
+                    <span class="label">24h High</span>
+                    <span class="value">$315.20</span>
+                </div>
+                <div class="stat">
+                    <span class="label">24h Low</span>
+                    <span class="value">$308.10</span>
+                </div>
+                <div class="stat">
+                    <span class="label">24h Volume</span>
+                    <span class="value">12.5M USDT</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Trading Area -->
+        <div class="main-trading-area">
+            <!-- TradingView Chart -->
+            <div class="chart-container">
+                <!-- TradingView Widget BEGIN -->
+                <div class="tradingview-widget-container">
+                    <div id="tradingview_chart"></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                    <script type="text/javascript">
+                    new TradingView.widget({
+                        "width": "100%",
+                        "height": 700,
+                        "symbol": "BINANCE:BNBUSDT",
+                        "interval": "1",
+                        "timezone": "Etc/UTC",
+                        "theme": "dark",
+                        "style": "1",
+                        "locale": "en",
+                        "toolbar_bg": "#1E2329",
+                        "enable_publishing": false,
+                        "allow_symbol_change": true,
+                        "container_id": "tradingview_chart",
+                        "autosize": true,
+                        "hide_side_toolbar": false,
+                        "details": true,
+                        "hotlist": true,
+                        "calendar": true,
+                        "studies": [
+                            "RSI@tv-basicstudies",
+                            "MASimple@tv-basicstudies",
+                            "Volume@tv-basicstudies"
+                        ],
+                        "show_popup_button": true,
+                        "popup_width": "1200",
+                        "popup_height": "800",
+                        "hide_volume": false,
+                        "withdateranges": true,
+                        "save_image": true,
+                        "watchlist": [
+                            "BINANCE:BTCUSDT",
+                            "BINANCE:ETHUSDT",
+                            "BINANCE:BNBUSDT",
+                            "BINANCE:SOLUSDT",
+                            "BINANCE:ADAUSDT",
+                            "BINANCE:DOGEUSDT"
+                        ],
+                        "fullscreen": true,
+                        "hide_legend": false,
+                        "enabled_features": [
+                            "study_templates",
+                            "use_localstorage_for_settings"
+                        ],
+                        "disabled_features": [],
+                        "overrides": {
+                            "mainSeriesProperties.candleStyle.upColor": "#00ff57",
+                            "mainSeriesProperties.candleStyle.downColor": "#ff4444",
+                            "mainSeriesProperties.candleStyle.borderUpColor": "#00ff57",
+                            "mainSeriesProperties.candleStyle.borderDownColor": "#ff4444",
+                            "mainSeriesProperties.candleStyle.wickUpColor": "#00ff57",
+                            "mainSeriesProperties.candleStyle.wickDownColor": "#ff4444"
+                        }
+                    });
+                    </script>
+                </div>
+                <!-- TradingView Widget END -->
+            </div>
+
+            <!-- Trading Form -->
+            <div class="trading-form">
+                <div class="trade-type">
+                    <button class="active">Buy</button>
+                    <button>Sell</button>
+                </div>
+                <div class="trade-inputs">
+                    <div class="input-group">
+                        <label>Price</label>
+                        <input type="number" value="312.50" step="0.01">
+                        <span class="currency">USDT</span>
+                    </div>
+                    <div class="input-group">
+                        <label>Amount</label>
+                        <input type="number" step="0.01">
+                        <span class="currency">BNB</span>
+                    </div>
+                    <div class="input-group">
+                        <label>Total</label>
+                        <input type="number" step="0.01">
+                        <span class="currency">USDT</span>
+                    </div>
+                    <div class="input-group">
+                        <div class="percentage-buttons">
+                            <button>25%</button>
+                            <button>50%</button>
+                            <button>75%</button>
+                            <button>100%</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="available-balance">
+                    <span>Available: 0.00 USDT</span>
+                </div>
+                <div class="trade-buttons">
+                    <button class="buy-btn">Buy BNB</button>
+                    <button class="sell-btn">Sell BNB</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Order Book -->
+        <div class="order-book">
+            <h3>Order Book</h3>
+            <div class="book-headers">
+                <span>Price (USDT)</span>
+                <span>Amount (BNB)</span>
+                <span>Total</span>
+            </div>
+            <div class="sell-orders">
+                <!-- Sell orders will be dynamically populated -->
+            </div>
+            <div class="current-price">
+                <span>312.50 USDT</span>
+            </div>
+            <div class="buy-orders">
+                <!-- Buy orders will be dynamically populated -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/trading.js"></script>
+    <script src="js/navigation.js"></script>
+</body>
+</html> 

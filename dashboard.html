@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="logo">
+                <img src="logo.png" alt="Logo">
+            </div>
+            <ul class="nav-links">
+                <li class="active">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard</span>
+                </li>
+                <li>
+                    <i class="fas fa-exchange-alt"></i>
+                    <span>Manage Order</span>
+                </li>
+                <li>
+                    <i class="fas fa-history"></i>
+                    <span>Trade History</span>
+                </li>
+                <li>
+                    <i class="fas fa-users"></i>
+                    <span>P2P Center</span>
+                </li>
+                <li>
+                    <i class="fas fa-wallet"></i>
+                    <span>Manage Wallet</span>
+                </li>
+                <li>
+                    <i class="fas fa-download"></i>
+                    <span>Deposit History</span>
+                </li>
+                <li>
+                    <i class="fas fa-upload"></i>
+                    <span>Withdraw History</span>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <div class="referral-link">
+                    <input type="text" value="https://yourplatform.com?reference=user123" readonly>
+                    <button class="copy-btn"><i class="fas fa-copy"></i></button>
+                </div>
+                <div class="user-actions">
+                    <button class="trade-btn">TRADE</button>
+                    <div class="user-profile">
+                        <span>username</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                <h1>My Dashboard</h1>
+                
+                <!-- KYC Verification Alert -->
+                <div class="kyc-alert">
+                    <h2>KYC Verification Required</h2>
+                    <p>KYC Verification Process Verified Account Benefits:</p>
+                    <ul>
+                        <li>Increased Limits: Access higher withdrawal and trading limits</li>
+                        <li>Enhanced Security: Ensure a higher level of account security</li>
+                        <li>Full Access: Unlock all platform features</li>
+                    </ul>
+                    <a href="#" class="verify-btn">Click here to verify</a>
+                </div>
+
+                <!-- 2FA Security Alert -->
+                <div class="security-alert">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>To secure your account add 2FA verification.</span>
+                    <a href="#" class="enable-btn">Enable</a>
+                </div>
+
+                <!-- Wallet Overview -->
+                <div class="wallet-overview">
+                    <div class="wallet-header">
+                        <div>
+                            <h2>Wallet Overview</h2>
+                            <span class="wallet-subtitle">Available wallet balance including the converted total balance</span>
+                        </div>
+                        <button class="close-btn">×</button>
+                    </div>
+
+                    <div class="total-balance">
+                        <span class="balance-amount">$0.0000</span>
+                        <span class="balance-label">Estimated Total Balance</span>
+                    </div>
+
+                    <div class="crypto-balances">
+                        <div class="crypto-item">
+                            <div class="crypto-info">
+                                <img src="assets/icons/bnb.png" alt="BNB">
+                                <span class="crypto-name">BNB</span>
+                            </div>
+                            <span class="amount">0.0000</span>
+                        </div>
+                        <div class="crypto-item">
+                            <div class="crypto-info">
+                                <img src="assets/icons/sol.png" alt="Solana">
+                                <span class="crypto-name">Solana</span>
+                                <span class="crypto-symbol">SOL</span>
+                            </div>
+                            <span class="amount">0.0000</span>
+                        </div>
+                        <div class="crypto-item">
+                            <div class="crypto-info">
+                                <img src="assets/icons/usdc.png" alt="USDC">
+                                <span class="crypto-name">USDC</span>
+                            </div>
+                            <span class="amount">0.0000</span>
+                        </div>
+                    </div>
+
+                    <button class="show-more-btn">
+                        <i class="fas fa-chevron-down"></i>
+                        Show More
+                    </button>
+
+                    <div class="deposit-section">
+                        <h3>Deposit Money</h3>
+                        <p>Make crypto & fiat deposits in a few steps</p>
+                        <div class="deposit-form">
+                            <input type="number" class="amount-input" placeholder="Amount">
+                            <select class="select-coin">
+                                <option value="">Select Coin</option>
+                                <option value="BNB">BNB</option>
+                                <option value="SOL">SOL</option>
+                                <option value="USDC">USDC</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="dashboard.js"></script>
+</body>
+</html> 

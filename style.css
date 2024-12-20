@@ -1,34 +1,115 @@
 /* style.css */
-body {
-    font-family: Arial, sans-serif;
+:root {
+    --primary-color: #0066FF;
+    --secondary-color: #1a1a1a;
+    --accent-color: #00FF57;
+    --text-color: #FFFFFF;
+}
+
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
 }
 
-header {
-    background-color: #f0f0f0;
-    padding: 20px;
+body {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
 }
 
-.hero {
-    background-color: #007bff;
-    color: #fff;
-    text-align: center;
-    padding: 100px 0;
+.hero-section {
+    display: flex;
+    padding: 4rem 6rem;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.features {
-    padding: 50px;
+.left-content {
+    max-width: 600px;
 }
 
-.feature {
-    border: 1px solid #ddd;
-    padding: 20px;
-    margin-bottom: 20px;
+h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
 }
 
-footer {
-    background-color: #f0f0f0;
-    text-align: center;
-    padding: 20px;
+.brand {
+    color: var(--primary-color);
+}
+
+.bonus-text {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.highlight {
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+.signup-btn {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.signup-btn:hover {
+    transform: translateY(-2px);
+}
+
+.crypto-cards {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.crypto-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+}
+
+.crypto-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.price-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.change.positive {
+    color: var(--accent-color);
+}
+
+.change.negative {
+    color: #FF4444;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .hero-section {
+        flex-direction: column;
+        padding: 2rem;
+    }
+    
+    .left-content {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
 }
