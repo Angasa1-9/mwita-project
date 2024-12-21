@@ -3,151 +3,284 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trading Dashboard</title>
-    <link rel="stylesheet" href="dashboard.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Dashboard - VINANCE</title>
+    <style>
+        :root {
+            --bg-dark: #0a0e17;
+            --card-bg: #131722;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --text-primary: #fff;
+            --text-secondary: #848e9c;
+            --accent-blue: #0095ff;
+            --warning-red: #ff3b3b;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background: var(--card-bg);
+            padding: 20px 0;
+            border-right: 1px solid var(--border-color);
+        }
+
+        .logo {
+            padding: 0 20px;
+            margin-bottom: 30px;
+        }
+
+        .nav-menu {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .nav-item i {
+            margin-right: 12px;
+        }
+
+        .nav-item:hover,
+        .nav-item.active {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        /* KYC Warning */
+        .kyc-warning {
+            background: rgba(255, 59, 59, 0.1);
+            border: 1px solid var(--warning-red);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+        }
+
+        .kyc-warning h2 {
+            color: var(--warning-red);
+            margin: 0 0 10px 0;
+        }
+
+        .kyc-link {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+
+        /* Wallet Overview */
+        .wallet-overview {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .wallet-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .total-balance {
+            font-size: 32px;
+            color: var(--accent-blue);
+            margin: 10px 0;
+        }
+
+        .currency-list {
+            display: grid;
+            gap: 10px;
+        }
+
+        .currency-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+        }
+
+        /* Trading Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        /* Deposit Form */
+        .deposit-form {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 20px;
+            width: 300px;
+            position: fixed;
+            right: 20px;
+            top: 20px;
+        }
+
+        .deposit-form input,
+        .deposit-form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            color: var(--text-primary);
+        }
+
+        .deposit-btn {
+            width: 100%;
+            padding: 12px;
+            background: var(--accent-blue);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <div class="dashboard-container">
+    <div class="container">
         <!-- Sidebar -->
-        <nav class="sidebar">
+        <div class="sidebar">
             <div class="logo">
-                <img src="logo.png" alt="Logo">
+                <img src="assets/logo.png" alt="VINANCE">
             </div>
-            <ul class="nav-links">
-                <li class="active">
-                    <i class="fas fa-th-large"></i>
-                    <span>Dashboard</span>
-                </li>
-                <li>
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active">
+                    <i class="fas fa-chart-line"></i>
+                    Dashboard
+                </a>
+                <a href="trading.html" class="nav-item">
                     <i class="fas fa-exchange-alt"></i>
-                    <span>Manage Order</span>
-                </li>
-                <li>
+                    Trade
+                </a>
+                <a href="#" class="nav-item">
                     <i class="fas fa-history"></i>
-                    <span>Trade History</span>
-                </li>
-                <li>
+                    Trade History
+                </a>
+                <a href="#" class="nav-item">
                     <i class="fas fa-users"></i>
-                    <span>P2P Center</span>
-                </li>
-                <li>
+                    P2P Center
+                </a>
+                <a href="#" class="nav-item">
                     <i class="fas fa-wallet"></i>
-                    <span>Manage Wallet</span>
-                </li>
-                <li>
-                    <i class="fas fa-download"></i>
-                    <span>Deposit History</span>
-                </li>
-                <li>
-                    <i class="fas fa-upload"></i>
-                    <span>Withdraw History</span>
-                </li>
-            </ul>
-        </nav>
+                    Manage Wallet
+                </a>
+            </nav>
+        </div>
 
         <!-- Main Content -->
-        <main class="main-content">
-            <!-- Top Bar -->
-            <div class="top-bar">
-                <div class="referral-link">
-                    <input type="text" value="https://yourplatform.com?reference=user123" readonly>
-                    <button class="copy-btn"><i class="fas fa-copy"></i></button>
+        <div class="main-content">
+            <!-- KYC Warning -->
+            <div class="kyc-warning">
+                <h2>KYC Verification Required</h2>
+                <p>KYC Verification Process Verified Account Benefits:</p>
+                <p>1. Increased Limits:** Access higher withdrawal and trading limits.</p>
+                <p>2. Enhanced Security:** Ensure a higher level of account security and compliance.</p>
+                <p>3. Full Access:** Unlock all platform features, including advanced trading options and exclusive promotions.</p>
+                <a href="#" class="kyc-link">Click here to verify</a>
+            </div>
+
+            <!-- Wallet Overview -->
+            <div class="wallet-overview">
+                <div class="wallet-header">
+                    <h2>Wallet Overview</h2>
+                    <p>Available wallet balance including the converted total balance</p>
                 </div>
-                <div class="user-actions">
-                    <button class="trade-btn">TRADE</button>
-                    <div class="user-profile">
-                        <span>username</span>
-                        <i class="fas fa-chevron-down"></i>
+                <div class="total-balance">$0.0000</div>
+                <p>Estimated Total Balance</p>
+                <div class="currency-list">
+                    <div class="currency-item">
+                        <span>Ugandan USH</span>
+                        <span>0.0000</span>
+                    </div>
+                    <div class="currency-item">
+                        <span>Ethereum ETH</span>
+                        <span>0.0000</span>
+                    </div>
+                    <div class="currency-item">
+                        <span>Tether USDT</span>
+                        <span>0.0000</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Dashboard Content -->
-            <div class="dashboard-content">
-                <h1>My Dashboard</h1>
-                
-                <!-- KYC Verification Alert -->
-                <div class="kyc-alert">
-                    <h2>KYC Verification Required</h2>
-                    <p>KYC Verification Process Verified Account Benefits:</p>
-                    <ul>
-                        <li>Increased Limits: Access higher withdrawal and trading limits</li>
-                        <li>Enhanced Security: Ensure a higher level of account security</li>
-                        <li>Full Access: Unlock all platform features</li>
-                    </ul>
-                    <a href="#" class="verify-btn">Click here to verify</a>
+            <!-- Trading Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">0</div>
+                    <div class="stat-label">Open Order</div>
                 </div>
-
-                <!-- 2FA Security Alert -->
-                <div class="security-alert">
-                    <i class="fas fa-shield-alt"></i>
-                    <span>To secure your account add 2FA verification.</span>
-                    <a href="#" class="enable-btn">Enable</a>
+                <div class="stat-card">
+                    <div class="stat-value">0</div>
+                    <div class="stat-label">Completed Order</div>
                 </div>
-
-                <!-- Wallet Overview -->
-                <div class="wallet-overview">
-                    <div class="wallet-header">
-                        <div>
-                            <h2>Wallet Overview</h2>
-                            <span class="wallet-subtitle">Available wallet balance including the converted total balance</span>
-                        </div>
-                        <button class="close-btn">×</button>
-                    </div>
-
-                    <div class="total-balance">
-                        <span class="balance-amount">$0.0000</span>
-                        <span class="balance-label">Estimated Total Balance</span>
-                    </div>
-
-                    <div class="crypto-balances">
-                        <div class="crypto-item">
-                            <div class="crypto-info">
-                                <img src="assets/icons/bnb.png" alt="BNB">
-                                <span class="crypto-name">BNB</span>
-                            </div>
-                            <span class="amount">0.0000</span>
-                        </div>
-                        <div class="crypto-item">
-                            <div class="crypto-info">
-                                <img src="assets/icons/sol.png" alt="Solana">
-                                <span class="crypto-name">Solana</span>
-                                <span class="crypto-symbol">SOL</span>
-                            </div>
-                            <span class="amount">0.0000</span>
-                        </div>
-                        <div class="crypto-item">
-                            <div class="crypto-info">
-                                <img src="assets/icons/usdc.png" alt="USDC">
-                                <span class="crypto-name">USDC</span>
-                            </div>
-                            <span class="amount">0.0000</span>
-                        </div>
-                    </div>
-
-                    <button class="show-more-btn">
-                        <i class="fas fa-chevron-down"></i>
-                        Show More
-                    </button>
-
-                    <div class="deposit-section">
-                        <h3>Deposit Money</h3>
-                        <p>Make crypto & fiat deposits in a few steps</p>
-                        <div class="deposit-form">
-                            <input type="number" class="amount-input" placeholder="Amount">
-                            <select class="select-coin">
-                                <option value="">Select Coin</option>
-                                <option value="BNB">BNB</option>
-                                <option value="SOL">SOL</option>
-                                <option value="USDC">USDC</option>
-                            </select>
-                        </div>
-                    </div>
+                <div class="stat-card">
+                    <div class="stat-value">0</div>
+                    <div class="stat-label">Canceled Order</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">0</div>
+                    <div class="stat-label">Total Trade</div>
                 </div>
             </div>
-        </main>
+        </div>
+
+        <!-- Deposit Form -->
+        <div class="deposit-form">
+            <h3>Deposit Money</h3>
+            <p>Make crypto & fiat deposits in a few steps</p>
+            <input type="number" placeholder="Amount">
+            <select>
+                <option value="">Select Currency</option>
+                <option value="USH">USH</option>
+                <option value="ETH">ETH</option>
+                <option value="USDT">USDT</option>
+            </select>
+            <button class="deposit-btn">Deposit 💰</button>
+        </div>
     </div>
-    <script src="dashboard.js"></script>
+
+    <script src="https://kit.fontawesome.com/your-kit-code.js"></script>
 </body>
 </html> 
